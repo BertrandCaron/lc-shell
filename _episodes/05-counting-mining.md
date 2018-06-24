@@ -655,14 +655,15 @@ Pair up with your neighbor and work on these exercies:
 
 > ## Searching with regular expressions
 > Use regular expressions to find all ISSN numbers
-> (four digits followed by hyphen followed by four digits)
+> (four digits followed by hyphen followed by three digits followed by either a digit or an 'X')
 > in `2014-01_JA.tsv` and print the results to a file `results/issns.tsv`.
 > Note that you might have to use the `-E` flag (or `-P` with some versions
 > of `grep`, e.g. with Git Bash on Windows.).
+> Also note that you may have to use the pipe in your regex, but as this character has a special meaning for bash, it must be preceded by a '\' character.
 >
 > > ## Solution
 > > ~~~
-> > $ grep -E '\d{4}-\d{4}' 2014-01_JA.tsv > issns.tsv
+> > $ grep -E '\d{4}-\d{3}(\d\|X)' 2014-01_JA.tsv > issns.tsv
 > > ~~~
 > > {: .bash}
 > >
